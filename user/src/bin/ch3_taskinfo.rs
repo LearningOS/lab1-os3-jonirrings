@@ -25,7 +25,7 @@ pub fn main() -> usize {
     assert_eq!(0, info.syscall_times[SYSCALL_EXIT]);
     assert!(t2 - t1 <= info.time + 1);
     assert!(info.time < t3 - t1 + 100);
-    assert!(info.status == TaskStatus::Running);
+    assert_eq!(info.status, TaskStatus::Running);
 
     // 想想为什么 write 调用是两次
     println!("string from task info test\n");
@@ -39,7 +39,7 @@ pub fn main() -> usize {
     assert_eq!(0, info.syscall_times[SYSCALL_EXIT]);
     assert!(t4 - t1 <= info.time + 1);
     assert!(info.time < t5 - t1 + 100);
-    assert!(info.status == TaskStatus::Running);
+    assert_eq!(info.status, TaskStatus::Running);
 
     println!("Test task info OK!");
     0
